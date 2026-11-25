@@ -1,0 +1,3 @@
+- W3C HTML 4.01: https://www.w3.org/Icons/valid-html401
+- All GIF badges: https://cyber.dabamos.de/88x31/
+- NixOS: custom badge using the [official Nix snowflake artwork](https://github.com/NixOS/nixos-artwork/blob/master/logo/nix-snowflake-colours.svg).

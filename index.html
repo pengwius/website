@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <title data-text="pageTitle">pengwius</title>
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="assets/profile_picture.png"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script src="greeting.js" defer></script>
+        <script src="strings.js" defer></script>
+        <script src="vendor/oneko/oneko.js" defer></script>
+    </head>
+    <body id="start">
+        <header class="intro">
+            <div class="language-switch" role="group" data-label="language">
+                <button
+                    type="button"
+                    lang="en"
+                    aria-label="English"
+                    aria-pressed="true"
+                    disabled
+                >
+                    EN
+                </button>
+                <button
+                    type="button"
+                    lang="pl"
+                    aria-label="Polski"
+                    aria-pressed="false"
+                    disabled
+                >
+                    PL
+                </button>
+            </div>
+            <h1>pengwius</h1>
+            <p>
+                <span class="visually-hidden" data-text="greeting"></span>
+                <span class="greeting" aria-hidden="true"></span>
+            </p>
+        </header>
+
+        <div class="ticker" tabindex="0">
+            <div class="ticker-track">
+                <p>
+                    <span data-text="tickerWelcome"></span>
+                    <span class="ticker-star" aria-hidden="true">✦</span>
+                    <span data-text="tickerCat"></span>
+                    <span class="ticker-star" aria-hidden="true">✦</span>
+                    <span data-text="tickerLlm"></span>
+                    <span class="ticker-star" aria-hidden="true">✦</span>
+                    <span data-text="tickerFeeding"></span>
+                    <span class="ticker-star" aria-hidden="true">✦</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="layout">
+            <aside class="sidebar" data-label="sidebar">
+                <section class="panel">
+                    <h2 class="titlebar" data-text="contact"></h2>
+                    <ul class="panel-body contacts" role="list">
+                        <li>
+                            <img src="assets/icons/mail.svg" alt="" />
+                            <span
+                                ><a href="mailto:me@pengwius.cafe"
+                                    ><b>Mail</b><br />me@pengwius.cafe</a
+                                ></span
+                            >
+                        </li>
+                        <li>
+                            <img src="assets/icons/mail.svg" alt="" />
+                            <span
+                                ><a href="mailto:pengwius@proton.me"
+                                    ><b>Mail</b><br />pengwius@proton.me</a
+                                ></span
+                            >
+                        </li>
+                        <li>
+                            <img src="assets/icons/telegram.svg" alt="" />
+                            <span
+                                ><a href="https://t.me/pengwius"
+                                    ><b>Telegram</b><br />@pengwius</a
+                                ></span
+                            >
+                        </li>
+                        <li>
+                            <img
+                                class="contact-logo"
+                                src="assets/icons/mastodon.svg"
+                                alt=""
+                            />
+                            <span
+                                ><a href="https://mastodon.world/@pengwius"
+                                    ><b>Mastodon</b
+                                    ><br />pengwius@mastodon.world</a
+                                ></span
+                            >
+                        </li>
+                        <li>
+                            <img src="assets/icons/matrix.svg" alt="" />
+                            <span
+                                ><a
+                                    href="https://matrix.to/#/@pengwius:matrix.org"
+                                    ><b>Matrix</b><br />@pengwius:matrix.org</a
+                                ></span
+                            >
+                        </li>
+                        <li>
+                            <img
+                                class="contact-logo"
+                                src="assets/icons/github.svg"
+                                alt=""
+                            />
+                            <span
+                                ><a href="https://github.com/pengwius"
+                                    ><b>GitHub</b><br />pengwius</a
+                                ></span
+                            >
+                        </li>
+                        <li>
+                            <img
+                                class="contact-logo"
+                                src="assets/icons/twitter.svg"
+                                alt=""
+                            />
+                            <span
+                                ><a href="https://x.com/pengwius"
+                                    ><b>Twitter</b><br />@pengwius</a
+                                ></span
+                            >
+                        </li>
+                    </ul>
+                </section>
+                <section class="panel cat-panel" hidden>
+                    <div class="cat-heading">
+                        <div class="titlebar">
+                            <h2 data-text="catStatus"></h2>
+                            <span
+                                class="cat-help"
+                                tabindex="0"
+                                aria-describedby="cat-hint"
+                                >?</span
+                            >
+                        </div>
+                        <p class="cat-hint" id="cat-hint">
+                            <span
+                                class="cat-hint-mouse"
+                                data-text="catHintMouse"
+                            ></span>
+                            <span
+                                class="cat-hint-touch"
+                                data-text="catHintTouch"
+                            ></span>
+                        </p>
+                    </div>
+                    <label class="cat-switch-label">
+                        <span data-text="catToggle"></span>
+                        <input
+                            class="cat-switch"
+                            type="checkbox"
+                            role="switch"
+                            autocomplete="off"
+                            checked
+                        />
+                    </label>
+                    <div class="panel-body" id="neko-status">
+                        <div class="cat-online">
+                            <p class="status" data-text="catOnline"></p>
+                            <p data-text="catAlert"></p>
+                        </div>
+                        <div class="cat-asleep">
+                            <p class="status" data-text="catAsleep"></p>
+                            <p data-text="catDream"></p>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <main>
+                <section class="panel" aria-labelledby="about-me">
+                    <h2 class="titlebar" id="about-me" data-text="about"></h2>
+                    <div class="panel-body about-copy">
+                        <p>
+                            <span data-text="aboutIntro"></span>
+                            <a
+                                href="https://jie-fang.github.io/blog/basics-of-ricing"
+                                >rice</a
+                            >.<span data-text="aboutContact"></span>
+                        </p>
+                        <p>
+                            <strong data-text="playing"></strong>
+                            Cyberpunk 2077
+                            <br />
+                            <span data-text="playingNext"></span>
+                        </p>
+                        <p>
+                            <a
+                                href="https://github.com/pengwius.gpg"
+                                data-text="pgpKey"
+                            ></a
+                            >.
+                        </p>
+                        <p>
+                            <span data-text="llmQuestion"></span>
+                            <a
+                                href="https://free-data.jel.gay/"
+                                data-text="llmLink"
+                            ></a>
+                        </p>
+                    </div>
+                </section>
+
+                <section id="projects" class="panel">
+                    <h2 class="titlebar" data-text="projects"></h2>
+                    <ul class="panel-body projects" role="list">
+                        <li>
+                            <h3>
+                                <a
+                                    href="https://github.com/pengwius/nixos-config"
+                                    data-text="nixosTitle"
+                                ></a>
+                            </h3>
+                            <p>
+                                <span data-text="nixosIntro"></span>
+                                (<a href="https://asahilinux.org/"
+                                    >Asahi Linux</a
+                                >)<span data-text="nixosDesktop"></span>
+                                <a href="https://niri-wm.github.io/niri/"
+                                    >Niri</a
+                                >
+                                +
+                                <a href="https://noctalia.dev/shell"
+                                    >Noctalia Shell</a
+                                ><span data-text="nixosStyle"></span>
+                            </p>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="https://github.com/Radio-Sur/surcast"
+                                    >Surcast</a
+                                >
+                            </h3>
+                            <p data-text="surcast"></p>
+                        </li>
+                        <li>
+                            <h3>
+                                <a
+                                    href="https://github.com/pengwius/ksef-client-rust"
+                                    >KSeF SDK</a
+                                >
+                            </h3>
+                            <p data-text="ksef"></p>
+                        </li>
+                        <li>
+                            <h3>Socialify</h3>
+                            <p>
+                                <span data-text="socialify"></span>
+                                <a
+                                    href="https://github.com/socialify-io/socialify-ios"
+                                    data-text="socialifyIos"
+                                ></a>
+                                <span data-text="and"></span>
+                                <a
+                                    href="https://github.com/socialify-io/socialify-backend"
+                                    data-text="socialifyBackend"
+                                ></a
+                                >.
+                            </p>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+
+        <footer>
+            <p>
+                <span data-text="lastEdited"></span>
+                <time datetime="2026-11-25"></time>
+            </p>
+            <div class="visit-counter">
+                <span data-text="visitorCounter" aria-hidden="true"></span>
+                <img
+                    src="https://api.visitorbadge.io/api/visitors?path=pengwius.github.io%2Fwebsite&amp;label=%E2%98%85&amp;labelColor=%23140d28&amp;countColor=%23dfff82&amp;style=flat-square"
+                    height="20"
+                    referrerpolicy="no-referrer"
+                    alt=""
+                    data-alt="visitorCounter"
+                />
+            </div>
+            <a href="#start" data-text="backToTop"></a>
+            <div class="stamps">
+                <a href="https://validator.w3.org/"
+                    ><img
+                        src="assets/badges/w3c-html401.png"
+                        width="88"
+                        height="31"
+                        alt=""
+                        data-alt="w3cBadge"
+                /></a>
+                <img
+                    src="assets/badges/iexplorer.gif"
+                    width="88"
+                    height="31"
+                    alt="Internet Explorer"
+                />
+                <img
+                    src="assets/badges/netscape_now.gif"
+                    width="88"
+                    height="31"
+                    alt="Netscape Now!"
+                />
+                <img
+                    src="assets/badges/notepad.gif"
+                    width="88"
+                    height="31"
+                    alt="Notepad"
+                />
+                <img
+                    src="assets/badges/800x600a.gif"
+                    width="88"
+                    height="31"
+                    alt="800×600"
+                />
+                <img
+                    src="assets/badges/agplv3-88x31.gif"
+                    width="88"
+                    height="31"
+                    alt=""
+                    data-alt="agplBadge"
+                />
+                <img
+                    src="assets/badges/amigaos.gif"
+                    width="88"
+                    height="31"
+                    alt="AmigaOS"
+                />
+                <img
+                    src="assets/badges/adobe_svg.gif"
+                    width="88"
+                    height="31"
+                    alt="Adobe SVG"
+                />
+                <img
+                    src="assets/badges/cd_rom.gif"
+                    width="88"
+                    height="31"
+                    alt="CD-ROM"
+                />
+                <img
+                    src="assets/badges/bynxftp.gif"
+                    width="88"
+                    height="31"
+                    alt="NX FTP"
+                />
+                <img
+                    src="assets/badges/designedbymac.gif"
+                    width="88"
+                    height="31"
+                    alt="Designed by Mac"
+                />
+                <img
+                    src="assets/badges/debian.gif"
+                    width="88"
+                    height="30"
+                    alt="Debian"
+                />
+                <img
+                    src="assets/badges/gnu-linux.gif"
+                    width="88"
+                    height="31"
+                    alt="GNU/Linux"
+                />
+                <img
+                    src="assets/badges/gimp.gif"
+                    width="90"
+                    height="31"
+                    alt="GIMP"
+                />
+                <img
+                    src="assets/badges/gplv3.gif"
+                    width="88"
+                    height="31"
+                    alt=""
+                    data-alt="gplBadge"
+                />
+                <img
+                    src="assets/badges/html3_s1.gif"
+                    width="88"
+                    height="31"
+                    alt="HTML 3"
+                />
+                <img
+                    src="assets/badges/jellyfin.gif"
+                    width="88"
+                    height="31"
+                    alt="Jellyfin"
+                />
+                <img
+                    src="assets/badges/neo-fedi.gif"
+                    width="88"
+                    height="31"
+                    alt="Neo-Fedi"
+                />
+                <img
+                    src="assets/badges/web11badge.gif"
+                    width="88"
+                    height="31"
+                    alt="Web 1.1"
+                />
+                <img
+                    src="assets/badges/winrar3.gif"
+                    width="88"
+                    height="31"
+                    alt="WinRAR 3"
+                />
+                <img
+                    src="assets/badges/winamp5.gif"
+                    width="88"
+                    height="31"
+                    alt="Winamp 5"
+                />
+                <a href="https://nixos.org/"
+                    ><img
+                        src="assets/badges/nixos.svg"
+                        width="88"
+                        height="31"
+                        alt=""
+                        data-alt="nixosBadge"
+                /></a>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    ><img
+                        src="assets/badges/clickhere_red.gif"
+                        width="88"
+                        height="31"
+                        alt=""
+                        data-alt="youtubeBadge"
+                /></a>
+            </div>
+            <!-- Cats: https://okaynana.neocities.org/cat3.gif -->
+            <img
+                class="footer-cats"
+                src="assets/cat3.gif"
+                width="500"
+                height="68"
+                alt=""
+                data-alt="footerCats"
+            />
+        </footer>
+    </body>
+</html>
